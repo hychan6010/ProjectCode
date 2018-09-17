@@ -61,4 +61,3 @@ ArrayList::ArrayList(int c){      //default constructor
   {
    return *(array + n - 1);
   }
-
