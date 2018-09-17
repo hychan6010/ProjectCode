@@ -32,7 +32,7 @@ ArrayList::ArrayList(int c){      //default constructor
     elements = 0;
     ArraySize = c;
  }
- void push_back(String a){
+ void ArrayList::push_back(String a){
     if(elements >= ArraySize - 1){
      String *array2 = new String[ 2 * elements];
       for(int i = 0; i<elements;i++){
@@ -47,7 +47,7 @@ ArrayList::ArrayList(int c){      //default constructor
      }
  }
   
- bool remove_front(String &copy){
+ bool ArrayList::remove_front(String &copy){
    copy = *(array);
    array++;
    elements--;
