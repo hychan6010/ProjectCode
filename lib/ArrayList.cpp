@@ -1,40 +1,63 @@
 #include <stdio.h>
 
+
+class String {
+  public:
+  const char* string;
+  String(const char *s = "")
+  {
+    string = s;
+  }
+};
+
 class ArrayList{
   public:
-  ArrayList();          //constructor
-  ~ArrayList();         //deconstructor
-  int get(int n);
+  ArrayList(int c = 10);          //constructor
+  ~ArrayList();              //deconstructor
+  String get(int n);
   void push_back(String a);
   int length(){
     return elements;
   }
-  bool remove_front();
+  bool remove_front(String &copy);
   bool empty();
   private: 
-  int ArraySize;
   int elements;
-  double *array;
+  int ArraySize;
+  String *array;
   void MakeSpace();
  
-ArrayList::Array:List(){      //default constructor
-    ArraySize = 0;
+ArrayList::Array:List(int c){      //default constructor
+    array = new String[c];
     elements = 0;
-    array = NULL; 
+    ArraySize = c;
  }
- 
+ void push_back(String a);{
+    if(elements >= ArraySize - 1){
+     String *array2 = new String[ 2 * elements];
+      for(int i = 0; i<elements;i++){
+      *(array2 + i) = *(array + i);
+     }
+      array = array2;
+      delete [] array2;
+   }
+   else {
+     *(array + elements) = a;
+        elements++;
+     }
+ }
+  
+ bool remove_front(String &copy){
+   copy = *(array);
+   array++;
+   elements--;
+   return true;
+ }
  ArrayList::~ArrayList(){     //destructor, deletes array
  delete [] array;
  }
  
- bool ArrayList::empty() {
-    return elements = 0;
-    }
-  int ArrayList::get(int n)
+  String ArrayList::get(int n)
   {
-    for(int i = 0; i< elements; i++){
-      if(array[i] == n) {
-        return n; 
-      }
-    }
+   return *(array + n - 1);
   }
