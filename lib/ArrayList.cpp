@@ -4,9 +4,11 @@ class ArrayList{
   public:
   ArrayList();          //constructor
   ~ArrayList();         //deconstructor
-  String get(int n);
+  int get(int n);
   void push_back(String a);
-  int length();
+  int length(){
+    return elements;
+  }
   bool remove_front();
   bool empty();
   private: 
@@ -17,7 +19,7 @@ class ArrayList{
  
 ArrayList::Array:List(){      //default constructor
     ArraySize = 0;
-    int size = 0;
+    elements = 0;
     array = NULL; 
  }
  
@@ -27,4 +29,11 @@ ArrayList::Array:List(){      //default constructor
  
  bool ArrayList::empty() {
     return elements = 0;
+    }
+  int ArrayList::get(int n)
+  {
+    for(int i = 0; i< elements; i++){
+      if(array[i] == n) {
+        return n; 
+      }
     }
