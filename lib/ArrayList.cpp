@@ -19,20 +19,20 @@ class ArrayList{
   int length(){
     return elements;
   }
+
   bool remove_front(String &copy);
   bool empty();
   private: 
   int elements;
   int ArraySize;
   String *array;
-  void MakeSpace();
- 
-ArrayList::Array:List(int c){      //default constructor
+};
+ArrayList::ArrayList(int c){      //default constructor
     array = new String[c];
     elements = 0;
     ArraySize = c;
  }
- void push_back(String a);{
+ void push_back(String a){
     if(elements >= ArraySize - 1){
      String *array2 = new String[ 2 * elements];
       for(int i = 0; i<elements;i++){
@@ -61,3 +61,4 @@ ArrayList::Array:List(int c){      //default constructor
   {
    return *(array + n - 1);
   }
+}
