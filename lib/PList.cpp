@@ -35,7 +35,7 @@ void List::append(Object o)
   {
     if(!empty())
     {
-      copy = head->getString();
+      copy = head->getObject();
       ListNode *tmp = head->getNext();
       delete head;
       head=tmp;
@@ -50,7 +50,7 @@ bool List::empty()
 {
   return head==NULL;
 }
-void List::insertAfter(List::iterator it, Item item) // pseudocode in zyBook 2.3
+void List::insertAfter(List::iterator it, Item item) 
 {
     if (it.node==NULL)
       { // special case to insert at the head
