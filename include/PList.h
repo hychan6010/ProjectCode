@@ -35,7 +35,7 @@ public:
                  Object object;
                  ListNode *next;
            public: 
-                   ListNode(Object o, ListNode *n = NULL) {
+                   ListNode(Object *o, ListNode *n = NULL) {
                           object = o;
                           next = NULL;
                      }
@@ -76,7 +76,7 @@ public:
                              
                              List();
                              int length();
-                             void append(Object o);
+                             void append(Object *o);
                              bool remove(Object &o);
                              void removeAfter(iterator it);
                              void insertAfter(iterator it, Object object);
