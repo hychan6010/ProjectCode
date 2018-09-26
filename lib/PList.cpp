@@ -5,13 +5,13 @@ List::List()    //constructor
 {
   head = NULL;
   tail = NULL;
-  counter = 0;
+  int counter = 0;
 }
   List::~List() //deconstructor
   {
     String t;
     while(!empty())
-      remove_front(t);
+      remove(t);
   }
   int List::length() 
   { 
@@ -21,7 +21,7 @@ List::List()    //constructor
 
 void List::append(Object o)
 {
-    ListNode *node = new ListNode(a);
+    ListNode *node = new ListNode(o);
     if (head==NULL) {
     head = node;
     tail = node;
@@ -35,7 +35,7 @@ void List::append(Object o)
   {
     if(!empty())
     {
-      copy = head->getObject();
+      o = head->getObject();
       ListNode *tmp = head->getNext();
       delete head;
       head=tmp;
