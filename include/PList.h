@@ -32,7 +32,7 @@ public:
     int counter;
           class ListNode{
           public:
-                 Object object;
+                 Object *object;
                  ListNode *next;
            public: 
                    ListNode(Object *o, ListNode *n = NULL) {
