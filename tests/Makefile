@@ -1,8 +1,7 @@
 
 # list the name of each file (without the .cpp file at the end)
 
-EXE = example test
-
+EXE = example Test
 all: $(EXE)
 
 run: all $(addsuffix -run,$(EXE))
