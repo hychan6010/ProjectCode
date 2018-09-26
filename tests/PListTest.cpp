@@ -3,12 +3,12 @@ int main()
 {
     OList o;
     
-    String words ("Hello");
-    Integer number(5);
-    Double double(2.5);
-    o.append(words);
-    o.append(number);
-    o.append(double);
+    Object *o1 = new String ("Hello");
+    Object *o2 = new Integer (5);
+    Object o3* = new Double (2.5);
+    o.append(o1);
+    o.append(o2);
+    o.append(o3);
     
     
     List::iterator it = o.begin();
