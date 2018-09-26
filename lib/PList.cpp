@@ -55,7 +55,7 @@ void List::insertAfter(List::iterator it, Object object)
     if (it.node==NULL)
       { // special case to insert at the head
 	// point new node at current head of list
-	ListNode *node = new ListNode(item,head);
+	ListNode *node = new ListNode(object,head);
 	if (head==NULL) { // if head was NULL, tail was also NULL
 	  tail = node;   // new node is now the tail
 	  head = node;   // new node is now the head
@@ -65,7 +65,7 @@ void List::insertAfter(List::iterator it, Object object)
       }
     else // insert after it
       {
-	ListNode *node = new ListNode(item,it.node->getNext());
+	ListNode *node = new ListNode(object,it.node->getNext());
 	it.node->setNext(node);
 	if (tail==it.node) tail = node;
       }
