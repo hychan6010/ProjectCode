@@ -44,7 +44,7 @@ public:
                       void setNext(ListNode *n){
                              next = n;
                         }
-                        Object getObject () {
+                        Object& getObject () {
                         return object;
                         }
                       };
