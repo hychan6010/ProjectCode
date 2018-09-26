@@ -38,7 +38,7 @@ public:
                           object = o;
                           next = NULL;
                      }
-                     ListNode = *getNext(){
+                     ListNode *getNext(){
                             return next;
                       }
                       void setNext(ListNode *n){
@@ -57,7 +57,7 @@ public:
                           ListNode *node;
                           
                           public:
-                          Iterator(ListNode *n=NULL){
+                          iterator(ListNode *n=NULL){
                                     node = n;
                            }
                            Object &getObject(){
@@ -69,7 +69,8 @@ public:
                                         return node = NULL;
                                         }
                              
-                             };
+                             }
+                          };
                              
                              List();
                              void append(Object o);
