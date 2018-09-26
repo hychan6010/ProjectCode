@@ -28,6 +28,7 @@ public:
      };
      
  class List {
+   int counter;
   private:
           class ListNode{
           public:
