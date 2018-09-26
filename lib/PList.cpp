@@ -19,7 +19,7 @@ List::List()    //constructor
   }
 
 
-void List::append(Object o)
+void List::append(Object *o)
 {
     ListNode *node = new ListNode(o);
     if (head==NULL) {
