@@ -5,7 +5,7 @@ List::List()    //constructor
 {
   head = NULL;
   tail = NULL;
-  int counter = 0;
+  counter = 0;
 }
   List::~List() //deconstructor
   {
