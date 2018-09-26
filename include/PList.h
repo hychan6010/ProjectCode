@@ -34,7 +34,7 @@ public:
                  Object object;
                  ListNode *next;
            public: 
-                   List Node(Object o, ListNode *n = NULL){
+                   ListNode(Object o, ListNode *n = NULL){
                           object = o;
                           next = NULL;
                      }
@@ -65,11 +65,12 @@ public:
                             }
                                     void increment (){
                                      node = node ->getNext();
-                             bool end(){
-                                        return node = NULL;
+                                    }
+                             bool end() {
+                                        return node == NULL;
                                         }
                              
-                             }
+                             
                           };
                              
                              List();
