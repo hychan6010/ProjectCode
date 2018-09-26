@@ -75,6 +75,7 @@ public:
                           };
                              
                              List();
+                             int length();
                              void append(Object o);
                              bool remove(Object &o);
                              void removeAfter(iterator it);
