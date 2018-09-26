@@ -7,7 +7,7 @@ int main()
     
     Object *o1 = new String ("Hello");
     Object *o2 = new Integer (5);
-    Object o3* = new Double (2.5);
+    Object *o3 = new Double (2.5);
     o.append(o1);
     o.append(o2);
     o.append(o3);
@@ -18,7 +18,7 @@ int main()
     {
       Object &object = it.getObject();
 
-   object->print();
+   object.print();
 
       it.increment();
 }
