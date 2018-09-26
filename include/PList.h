@@ -54,7 +54,7 @@ public:
                       
                       public:
                           class iterator {
-                          private:
+                          public:
                           ListNode *node;
                           
                           public:
