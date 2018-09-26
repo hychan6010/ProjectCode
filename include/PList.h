@@ -30,11 +30,11 @@ public:
  class List {
   private:
           class ListNode{
-          private:
+          public:
                  Object object;
                  ListNode *next;
            public: 
-                   ListNode(Object o, ListNode *n = NULL){
+                   ListNode(Object o, ListNode *n = NULL) {
                           object = o;
                           next = NULL;
                      }
