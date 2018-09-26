@@ -3,13 +3,13 @@
 
 class Object {
 public:
-  virtal void print();
+  virtual void print();
  };
  
  class String : public Object {
  public:
         const char* str;
-        String(const char *s = "") str(s) {}
+        String(const char *s = ""): str(s) {}
         void print();
   };
   
@@ -31,7 +31,7 @@ public:
   private:
           class ListNode{
           private:
-                 object object;
+                 Object object;
                  ListNode *next;
            public: 
                    List Node(Object o, ListNode *n = NULL){
@@ -51,12 +51,12 @@ public:
                       ListNode *head;
                       ListNode *tail;
                       
-                      public
+                      public:
                           class iterator {
                           private:
                           ListNode *node;
                           
-                          public
+                          public:
                           Iterator(ListNode *n=NULL){
                                     node = n;
                            }
