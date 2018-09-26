@@ -1,7 +1,7 @@
 #include "PList.h"
 int main()
 {
-    OList o;
+    List o;
     
     Object *o1 = new String ("Hello");
     Object *o2 = new Integer (5);
