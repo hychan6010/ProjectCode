@@ -46,7 +46,7 @@ public:
                              next = n;
                         }
                         Object getObject () {
-                        return &object;
+                        return object;
                         }
                       };
                       ListNode *head;
@@ -61,7 +61,7 @@ public:
                           iterator(ListNode *n=NULL){
                                     node = n;
                            }
-                           Object &getObject(){
+                           Object getObject(){
                                     return node -> getObject();
                             }
                                     void increment (){
