@@ -46,7 +46,7 @@ public:
                              next = n;
                         }
                         Object& getObject () {
-                        return object;
+                        return &object;
                         }
                       };
                       ListNode *head;
@@ -79,7 +79,7 @@ public:
                              void append(Object *o);
                              bool remove(Object &o);
                              void removeAfter(iterator it);
-                             void insertAfter(iterator it, Object object);
+                             void insertAfter(iterator it, Object *object);
                              bool empty();
                              iterator begin()
                              {
