@@ -50,7 +50,7 @@ bool List::empty()
 {
   return head==NULL;
 }
-void List::insertAfter(List::iterator it, Object object) 
+void List::insertAfter(List::iterator it, Object *object) 
 {
     if (it.node==NULL)
       { // special case to insert at the head
