@@ -45,8 +45,8 @@ public:
                       void setNext(ListNode *n){
                              next = n;
                         }
-                        Object *getObject () {
-                        return object;
+                        Object &getObject () {
+                        return *object;
                         }
                       };
                       ListNode *head;
