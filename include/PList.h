@@ -46,7 +46,7 @@ public:
                              next = n;
                         }
                         Object getObject () {
-                        return object;
+                        return &object;
                         }
                       };
                       ListNode *head;
