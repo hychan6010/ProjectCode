@@ -25,7 +25,7 @@ public:
    virtual void remove(int) override;
 };
 
-IntegerSet::IntegerSet(int htsize)
+IntegerSetArray::IntegerSetArray(int htsize):IntegerSet(htsize)
 {
    array = new int[size];
    for(int i=0; i<size; i++)
