@@ -15,6 +15,16 @@ public:
    virtual void remove(int) = 0;
 };
 
+class IntegerSetArray : public IntegerSet {
+protected:
+  int *array;
+public:
+   IntegerSetArray(int htsize);
+   virtual bool insert(int) override;
+   virtual bool search(int) const override;
+   virtual void remove(int) override;
+};
+
 IntegerSet::IntegerSet(int htsize)
 {
    array = new int[size];
