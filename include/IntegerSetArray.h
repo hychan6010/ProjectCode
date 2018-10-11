@@ -27,30 +27,42 @@ public:
 
 IntegerSetArray::IntegerSetArray(int htsize):IntegerSet(htsize)
 {
-   array = new int[size];
-   for(int i=0; i<size; i++)
+   array = new int[htsize];
+   for(int i=0; i<htsize; i++)
       array[i] = -1;  // -1 means empty
 }
 
 bool IntegerSet::insert(int x)
 {
-   if ( array(x)== -1)
-   {
-     array(x) = x;
-     return true;
-   }
-   return false;
+     for(int i = 0; i <htsize;i++){
+         if ( array[i]== -1)
+         {
+         array[i]=x;
+         return true;
+          }
+       }
+  return false;
 }
 
 bool IntegerSet::search(int x) const
 {
-  // data can only be in one location, check it
-  return array(x)==x;
+  for(int i = 0; i<htsize; i++)
+    {
+       if ( array[i] == x )
+       {
+       return true;
+       }
+    }
+       return false; 
 }
 
 void IntegerSet::remove(int x)
 {
-   if ( array(x) == x )
-       array(x)= -1;
-}
+    for(int i = 0; i<htsize; i++)
+    {
+       if ( array[i] == x )
+       {
+        array[x]= -1;
+       }
+    }
 
