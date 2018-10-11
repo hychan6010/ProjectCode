@@ -16,7 +16,7 @@ public:
 };
 
 IntegerSet::IntegerSet(int htsize)
-
+{
    array = new int[size];
    for(int i=0; i<size; i++)
       array[i] = -1;  // -1 means empty
