@@ -38,7 +38,7 @@ bool IntegerSet::insert(int x)
    {
      array[ hash(x) ] = x;
      return true;
-   
+   }
    return false;
 }
 
