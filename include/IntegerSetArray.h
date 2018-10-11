@@ -34,9 +34,9 @@ IntegerSetArray::IntegerSetArray(int htsize):IntegerSet(htsize)
 
 bool IntegerSet::insert(int x)
 {
-   if ( array[hash(x)] == -1)
+   if ( array(x)== -1)
    {
-     array[ hash(x) ] = x;
+     array(x) = x;
      return true;
    }
    return false;
@@ -45,12 +45,12 @@ bool IntegerSet::insert(int x)
 bool IntegerSet::search(int x) const
 {
   // data can only be in one location, check it
-  return array[hash(x)]==x;
+  return array(x)==x;
 }
 
 void IntegerSet::remove(int x)
 {
-   if ( array[hash(x)] == x )
-       array[hash(x)] = -1;
+   if ( array(x) == x )
+       array(x)= -1;
 }
 
