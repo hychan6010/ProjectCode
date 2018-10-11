@@ -9,7 +9,7 @@ protected:
    return (key * 997) % size; 
    }
 public:
-   IntegerSet(int htsize):size(htsize) {}  
+   IntegerSet(int size):size(size) {}  
    virtual bool insert(int) = 0;
    virtual bool search(int) const = 0;
    virtual void remove(int) = 0;
@@ -19,34 +19,35 @@ class IntegerSetArray : public IntegerSet {
 protected:
   int *array;
 public:
-   IntegerSetArray(int htsize);
+   IntegerSetArray(int size);
    virtual bool insert(int) override;
    virtual bool search(int) const override;
    virtual void remove(int) override;
 };
 
-IntegerSetArray::IntegerSetArray(int htsize):IntegerSet(htsize)
+IntegerSetArray::IntegerSetArray(int size):IntegerSet(size)
 {
-   array = new int[htsize];
-   for(int i=0; i<htsize; i++)
+   array = new int[size];
+   for(int i=0; i<size; i++)
       array[i] = -1;  // -1 means empty
 }
 
-bool IntegerSet::insert(int x)
+bool IntegerSetArray::insert(int x)
 {
-     for(int i = 0; i <htsize;i++){
+     for(int i = 0; i <size;i++){
          if ( array[i]== -1)
          {
          array[i]=x;
          return true;
+         
           }
        }
   return false;
 }
 
-bool IntegerSet::search(int x) const
+bool IntegerSetArray::search(int x) const
 {
-  for(int i = 0; i<htsize; i++)
+  for(int i = 0; i<size; i++)
     {
        if ( array[i] == x )
        {
@@ -56,13 +57,13 @@ bool IntegerSet::search(int x) const
        return false; 
 }
 
-void IntegerSet::remove(int x)
+void IntegerSetArray::remove(int x)
 {
-    for(int i = 0; i<htsize; i++)
+    for(int i = 0; i<size; i++)
     {
        if ( array[i] == x )
        {
         array[x]= -1;
        }
     }
-
+}
