@@ -1,8 +1,7 @@
-#ifndef INTARRAY_H
-#define INTARRAY_H
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 class IntArray {
 private:
@@ -18,7 +17,15 @@ public:
    ~IntArray() {
      delete [] array;
 }
+
+IntArray(const char* str) {
+   length = strlen(str)
+   array = 
+   for(int i = 0; i < size; i++){
+         array[i]
    
+
+            
 Int Array(int size, int val=0){
    array = new int[size];
    for(int i = 0; i < size; i++){
@@ -45,3 +52,62 @@ IntArray& operator+=(const IntArray &rhs) {
             array[i] = rhs.array[i];
             return *this; // reference to this object
 }
+      
+IntArray IntArray::operator + (const IntArray &rhs) const
+{
+  IntArray result(length); // make object to hold return value,
+  	                       // make long enough to hold this object’s data
+    int i=0;
+    for(i=0; i<length && i<rhs.length; i++)
+       result.array[i] = array[i] + rhs.array[i];
+    for(;i<length;i++) // if rhs.length is shorter, copy rest of array
+       result.array[i] = array[i];
+    return result;
+}
+IntArray IntArray::operator - (const IntArray &rhs) const
+{
+  IntArray result(length); // make object to hold return value,
+  	                       // make long enough to hold this object’s data
+    int i=0;
+    for(i=0; i<length && i<rhs.length; i++)
+       result.array[i] = array[i] - rhs.array[i];
+    for(;i<length;i++) // if rhs.length is shorter, copy rest of array
+       result.array[i] = array[i];
+    return result;
+}
+      
+IntArray IntArray::operator * (const IntArray &rhs) const
+{
+  IntArray result(length); // make object to hold return value,
+  	                       // make long enough to hold this object’s data
+    int i=0;
+    for(i=0; i<length && i<rhs.length; i++)
+       result.array[i] = array[i] * rhs.array[i];
+    for(;i<length;i++) // if rhs.length is shorter, copy rest of array
+       result.array[i] = array[i];
+    return result;
+}
+
+IntArray IntArray::operator / (const IntArray &rhs) const
+{
+  IntArray result(length); // make object to hold return value,
+  	                       // make long enough to hold this object’s data
+    int i=0;
+    for(i=0; i<length && i<rhs.length; i++)
+       result.array[i] = array[i] / rhs.array[i];
+    for(;i<length;i++) // if rhs.length is shorter, copy rest of array
+       result.array[i] = array[i];
+    return result;
+}      
+      
+IntArray IntArray::operator << (const IntArray &rhs) const
+{
+  IntArray result(length); // make object to hold return value,
+  	                       // make long enough to hold this object’s data
+    int i=0;
+    for(i=0; i<length && i<rhs.length; i++)
+       result.array[i] = array[i] - rhs.array[i];
+    for(;i<length;i++) 
+       result.array[i] = array[i];
+    return result;
+}      
