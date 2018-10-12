@@ -22,9 +22,11 @@ public:
 
 IntArray(const char* str) {
    length = strlen(str)
-   array = 
-   for(int i = 0; i < size; i++){
-         array[i]
+   array = (int)(str)
+   for(int i = 0; i < length; i++){
+         array[i];
+   }
+}
    
 
             
