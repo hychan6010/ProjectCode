@@ -3,90 +3,90 @@
 
 class Object {
 public:
-  virtual void print();
- };
- 
- class String : public Object {
- public:
-        const char* str;
-        String(const char *s = ""): str(s) {}
-        void print();
-  };
-  
-  class Integer : public Object {
+  virtual void print() = 0;
+};
+
+class Double : public Object {
+  double x;
+public:
+  Double(double a):x(a) {}
+  void print() { printf("%lf",x); }
+};
+
+class Integer : public Object {
+  int x;
+public:
+  Integer(int a):x(a) {}
+  void print() { printf("%d",x); }
+};
+
+class String : public Object {
+  const char *x;
+public:
+  String(const char *a):x(a) {}
+  void print() { printf("%s",x); }
+};
+
+class PList {
+private:
+
+// ListNode represents each
+// node of the list
+  class ListNode {
   public:
-        int x;
-        Integer(int i = 0): x(i) {}
-        void print();
-   };
-   
-   class Double : public Object {
-   public:
-          double a;
-          Double(double ii = 0.0) : a(ii) {}
-          void print();
-     };
-     
- class List {
+    Object *obj; // data in the list
+    ListNode *next;
+  public:
+    ListNode(Object *o, ListNode *n=NULL)
+    {
+      obj = o;
+      next=n; // automatically serves as a list tail
+    }
+    ListNode* getNext()
+    {
+      return next;
+    }
+    void setNext(ListNode *n)
+    {
+      next = n;
+    }
+    Object* getObject()
+    {
+      return obj;
+    }
+  };
+
+  // add head and tail pointer
+  ListNode *head;
+  ListNode *tail;
+
+public:
+
+  class iterator {
   private:
-    int counter;
-          class ListNode{
-          public:
-                 Object *object;
-                 ListNode *next;
-           public: 
-                   ListNode(Object *o, ListNode *n = NULL) {
-                          object = o;
-                          next = NULL;
-                     }
-                     ListNode *getNext(){
-                            return next;
-                      }
-                      void setNext(ListNode *n){
-                             next = n;
-                        }
-                        Object getObject () {
-                        return object;
-                        }
-                      };
-                      ListNode *head;
-                      ListNode *tail;
-                      
-                      public:
-                          class iterator {
-                          public:
-                          ListNode *node;
-                          
-                          public:
-                          iterator(ListNode *n=NULL){
-                                    node = n;
-                           }
-                           Object getObject(){
-                                    return node -> getObject();
-                            }
-                                    void increment (){
-                                     node = node ->getNext();
-                                    }
-                             bool end() {
-                                        return node == NULL;
-                                        }
-                             
-                             
-                          };
-                             
-                             List();
-                             int length();
-                             void append(Object *o);
-                             bool remove(Object &o);
-                             void removeAfter(iterator it);
-                             void insertAfter(iterator it, Object *object);
-                             bool empty();
-                             iterator begin()
-                             {
-                             return iterator(head);
-                             }
-                             ~List();
-                             };
-                                    
-              
-      
+    ListNode *node;
+
+  public:
+    iterator(ListNode *n=NULL) { node = n; }
+    Object* getObject() { return node->getObject(); }
+    void increment() { node = node->next; }
+    bool end() {  return node==NULL; }
+
+    friend class PList;
+  };
+
+
+public:
+  PList();
+  void append(Object *o);
+  bool remove(Object*& o);
+  bool empty();
+
+  iterator begin()
+  {
+    return iterator(head);
+  }
+
+  void removeAfter(iterator it); // pseudocode in zyBook 2.4
+  void insertAfter(iterator it, Object *o);
+};
