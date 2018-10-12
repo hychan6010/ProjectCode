@@ -115,3 +115,24 @@ IntArray IntArray::operator << (const IntArray &rhs) const
        result.array[i] = array[i];
     return result;
 }      
+
+   
+IntArray IntArray:: operator char*(const IntArray &rhs) const
+{
+   IntArray 
+      
+      
+      
+}
+   
+IntArray IntArray:: operator int(const IntArray) const
+{
+       int i=0;
+       int j=0;
+       int average = 0;
+    for(i=0; i<length; i++){
+       array[i]+=j;
+    }
+      (j/ length)=average;
+      return average;
+}
