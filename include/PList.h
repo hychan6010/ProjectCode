@@ -29,18 +29,15 @@ public:
 
 class PList {
 private:
-
-// ListNode represents each
-// node of the list
   class ListNode {
   public:
-    Object *obj; // data in the list
+    Object *obj;
     ListNode *next;
   public:
     ListNode(Object *o, ListNode *n=NULL)
     {
       obj = o;
-      next=n; // automatically serves as a list tail
+      next=n; 
     }
     ListNode* getNext()
     {
@@ -55,8 +52,6 @@ private:
       return obj;
     }
   };
-
-  // add head and tail pointer
   ListNode *head;
   ListNode *tail;
 
@@ -87,6 +82,6 @@ public:
     return iterator(head);
   }
 
-  void removeAfter(iterator it); // pseudocode in zyBook 2.4
+  void removeAfter(iterator it);
   void insertAfter(iterator it, Object *o);
 };
