@@ -1,91 +1,110 @@
-#include <stdio.h>
 #include "PList.h"
 
-List::List()    //constructor
+PList::PList()
 {
   head = NULL;
   tail = NULL;
-  counter = 0;
 }
-  List::~List() //deconstructor
-  {
-    String t;
-    while(!empty())
-      remove(t);
-  }
-  int List::length() 
-  { 
-   return counter;
-  }
 
-
-void List::append(Object *o)
+void PList::append(Object *o)
 {
-    ListNode *node = new ListNode(o);
-    if (head==NULL) {
-    head = node;
-    tail = node;
-    } else {
-        tail->setNext(node);
-        tail = node;
-      counter++;
-     }
-  }
-  bool List::remove(Object &o)
-  {
-    if(!empty())
+  ListNode *node = new ListNode(o);
+  if (head == NULL)
     {
-      o = head->getObject();
-      ListNode *tmp = head->getNext();
-      delete head;
-      head=tmp;
-      if(tmp==NULL)
-          tail = NULL;
-       return true;
+      head = node;
+      tail = node;
     }
-      return false;
+  else
+    {
+      tail->setNext(node);
+      tail = node;
+    }
 }
 
-bool List::empty()
+bool PList::remove(Object*& copy)
+{
+  if (!empty())
+    {
+      copy = head->getObject();
+      ListNode *tmp = head->getNext();
+      delete head; 
+      head = tmp; 
+      if (tmp==NULL)
+	tail = NULL;
+      return true;
+    }
+  return false;
+}
+
+bool PList::empty()
 {
   return head==NULL;
 }
-void List::insertAfter(List::iterator it, Object *object) 
+
+void PList::insertAfter(PList::iterator it, Object *o)
 {
     if (it.node==NULL)
-      { // special case to insert at the head
-	// point new node at current head of list
-	ListNode *node = new ListNode(object,head);
-	if (head==NULL) { // if head was NULL, tail was also NULL
-	  tail = node;   // new node is now the tail
-	  head = node;   // new node is now the head
+      { 
+	
+	ListNode *node = new ListNode(o,head);
+	if (head==NULL) { 
+	  tail = node; 
+	  head = node;
 	} else {
-	  head = node;   // update head to new node
+	  head = node; 
 	}
       }
-    else // insert after it
-      {
-	ListNode *node = new ListNode(object,it.node->getNext());
-	it.node->setNext(node);
-	if (tail==it.node) tail = node;
-      }
+    else
+    {
+	     ListNode *node = new ListNode(o,it.node->getNext());
+	     it.node->setNext(node);
+	     if (tail==it.node) tail = node;
+    }
 }
 
-void List::removeAfter(List::iterator it) // pseudocode in zyBook 2.4
+void PList::removeAfter(PList::iterator it) 
 {
-   if (it.node==NULL) // special case to remove head, it’s not after any node
+   if (it.node==NULL)
      {
-       ListNode *remove = head;               // will remove the head
-       head = head->getNext();      // advance head
-       if (head==NULL) tail = NULL; // if head is NULL now, list is empty
-       delete remove;               // delete removed node
+       ListNode *remove = head;              
+       head = head->getNext();  
+       if (head==NULL) tail = NULL;
+       delete remove;              
      }
-   else // normal case, if not the head, then simply disconnect the node
+   else 
      {
        ListNode *tmp = it.node;
-       ListNode *remove = tmp->getNext(); // next node to be removed
-       tmp->setNext(remove->getNext());   // point around node to be removed
-       if (tail==remove) tail = tmp;      // if removing tail, update tail
-       delete remove; // delete node      // delete the removed node
+       ListNode *remove = tmp->getNext();
+       tmp->setNext(remove->getNext()); 
+       if (tail==remove) tail = tmp;   
+       delete remove;    
      }
 }
+
+
+#include "PList.h"
+
+int main()
+{
+  PList l;
+
+  l.append(new String("Object"));
+  l.append(new Double(1.50));
+  l.append(new Integer(5);
+
+  PList::iterator it = l.begin();
+  while(!it.end())
+    {
+      Object *o = it.getObject();
+
+      printf("Next thing in list: ");
+      o->print();
+      printf("\n");
+
+      it.increment();
+    }
+
+  return 0;
+}
+
+
