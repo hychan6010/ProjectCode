@@ -2,7 +2,7 @@
 #include <stdlib.h>
  
 class IntegerSet {
-dldprotected:
+protected:
    int size;
    int hash(int key) 
    {
