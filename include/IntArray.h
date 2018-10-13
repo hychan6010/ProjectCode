@@ -12,8 +12,8 @@ private:
 public:
       IntArray(int le, int val=0):length(le) {
       array = new int[le];
-      for(int i=0; i<le; i++)
-        array[i] = val;
+      for(int a=0; i<le; a++)
+        array[a] = val;
    }
 
    ~IntArray() {
