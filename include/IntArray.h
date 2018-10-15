@@ -148,7 +148,8 @@ IntArray IntArray::operator+(const IntArray &rhs){
          if(array[a]<0 || array[a]>255){
             str[a] = ' ';
          }
-         else if(array[a]==0){
+         else {
+            if(array[a]==0){
             count = 1;
          }
          str[a]=(char)array[a];
