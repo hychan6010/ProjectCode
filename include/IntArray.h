@@ -9,16 +9,23 @@
 class IntArray {
 private:
    int *array;
-   int length;
+   int size;
 public:
-      IntArray(int le, int val=0):length(le) {
-      array = new int[le];
-      for(int a=0; i<le; a++)
-        array[a] = val;
-   }
-
-   ~IntArray() {
-     delete [] array;
+     IntArray(const char* str);
+     IntArray(int asize, int val);
+     int get(int index)const;
+     int getLength()const;
+     void set(int index, int value);
+     int& operator[](int index);
+     IntArray& operator+=(const IntArray& rhs);
+   IntArray& operator+(const IntArray& rhs);
+   IntArray& operator-(const IntArray& rhs);
+   IntArray& operator*(const IntArray& rhs);
+   IntArray& operator/(const IntArray& rhs);
+   IntArray& operator<<(int count)const;
+   operatorr char*()const;
+   operator int()const;
+   
 }
 
 IntArray::IntArray(const char* str) {
