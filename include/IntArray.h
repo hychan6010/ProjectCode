@@ -1,6 +1,3 @@
-#ifndef INTARRAY_H
-#define INTARRAY_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,13 +20,13 @@ public:
    IntArray& operator*(const IntArray& rhs);
    IntArray& operator/(const IntArray& rhs);
    IntArray& operator<<(int count)const;
-   operatorr char*()const;
+   operator char*()const;
    operator int()const;
    
-}
+};
 
 IntArray::IntArray(const char* str) {
-   size=asize;
+   size= strlen(str);
    array = new int[size];
    for(int a = 0; a<size;a++){
       array[a]=str[a];
@@ -37,9 +34,9 @@ IntArray::IntArray(const char* str) {
 }
    
             
-Int Array(int asize, int val=0){
+   IntArray::IntArray(int asize, int val=0){
    size = asize;
-   array = new int[size]
+   array = new int[size];
       for(int a = 0; a<size;a++){
          array[a]=val;
    }
