@@ -89,7 +89,7 @@ void IntegerSetHT::remove(int data)
 
 int main()
 {
-    IntegerSetHT set(500);
+    IntegerSetHT set(1000);
     set.insert(500);
  srand(time(NULL));
 	int r = rand();
