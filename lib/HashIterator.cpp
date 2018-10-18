@@ -25,12 +25,31 @@ public:
    virtual bool insert(int) override;
    virtual bool search(int) const override;
    virtual void remove(int) override;
+	
+	class iterator {
+		private: 
+		int i;
+		int *node;
+		public:
+		iterator (int i = NULL, int spot = 0){
+			node = 0; 
+			i = node;
+		}
+		int getInt() {
+			return table[i];
+		}
+		void increment(){
+			i++;
+		}
+		bool end(){
+			return [i] == NULL;
+		}	  
 };
 
 IntegerSetHT::IntegerSetHT(int htsize)
 :IntegerSet(htsize)
 {
-collision=0;
+	collision=0;
   probeDistance = 20;
    table = new int[size];
    for(int i=0; i<size; i++)
