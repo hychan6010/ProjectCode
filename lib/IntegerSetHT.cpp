@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctime>
 class IntegerSet {
 protected:
    int size;
@@ -20,6 +21,7 @@ protected:
   const int empty_after_removal = -1;
 public:
    IntegerSetHT(int htsize);
+       int collision;
    virtual bool insert(int) override;
    virtual bool search(int) const override;
    virtual void remove(int) override;
@@ -28,6 +30,7 @@ public:
 IntegerSetHT::IntegerSetHT(int htsize)
 :IntegerSet(htsize)
 {
+collision=0;
   probeDistance = 20;
    table = new int[size];
    for(int i=0; i<size; i++)
@@ -36,12 +39,17 @@ IntegerSetHT::IntegerSetHT(int htsize)
 
 bool IntegerSetHT::insert(int data)
 {
+
   int index = hash(data);
   int bucketsProbed = 0;
   while( bucketsProbed++ < probeDistance )
   {
    if ( table[index] < 0 )
    {
+       if(bucketsProbed=2){
+           collision++;
+       
+       }
      // if the entry is not being used, put the
     // data there
      table[ index ] = data;
@@ -89,9 +97,19 @@ void IntegerSetHT::remove(int data)
 
 int main()
 {
+    
+    int failure; 
     IntegerSetHT set(1000);
-    set.insert(500);
- srand(time(NULL));
-	int r = rand();
+    srand(time(NULL));
+    for(int i = 0; i<=500;i++){
+        int r = rand();
+        if(!set.insert(r)){
+            failure++;
+        }
+    }
+    printf("collision count %d \n", set.collision);
+    printf("failure count %d \n", failure);
+    
+	
 
 }
