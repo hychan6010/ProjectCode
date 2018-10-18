@@ -31,9 +31,9 @@ public:
 		int i;
 		int *node;
 		public:
-		iterator (int i = NULL, int spot = 0){
+		iterator (int j = NULL, int spot = 0){
 			node = 0; 
-			i = node;
+			i = spot;
 		}
 		int getInt() {
 			return table[i];
