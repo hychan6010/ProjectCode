@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctime>
+#include <stddef.h>
 class IntegerSet {
 protected:
    int size;
@@ -31,22 +32,28 @@ public:
 		int i;
 		int *node;
 		public:
-		iterator (int j = NULL, int spot = 0){
-			node = 0; 
+		iterator (int *j = NULL, int spot = 0)
+		{
+			node = j; 
 			i = spot;
 		}
 		int getInt() {
-			return table[i];
+			return node[i];
 		}
 		void increment(){
 			i++;
 		}
 		bool end(){
-			return [i] == NULL;
-		}	  
+			return i==500;
+		}	
+		friend class IntegerSetHT;
+	};
+		iterator begin(){
+			return iterator(table);
+		}
 };
 
-IntegerSetHT::IntegerSetHT(int htsize)
+IntegerSetHT::IntegerSetHT(int htsize = 500)
 :IntegerSet(htsize)
 {
 	collision=0;
@@ -125,10 +132,11 @@ set.insert(0);
 IntegerSetHT::iterator sit = set.begin();
 while(!sit.end())
 {
-   printf(“%d “, sit.getInt()); 
+    if(sit.getInt() >= 0){
+   printf("%d ", sit.getInt()); 
+    }
    sit.increment();
 }
 
-	
-
 }
+
