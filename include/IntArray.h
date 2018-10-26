@@ -168,3 +168,4 @@ IntArray::operator int() const{
    return total=total/size;
 }
 
+#endif //INTARRAY_H
