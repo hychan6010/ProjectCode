@@ -20,8 +20,8 @@ public:
      IntArray operator+=(const IntArray& rhs);
    IntArray operator+(const IntArray& rhs);
    IntArray operator-(const IntArray& rhs);
-   IntArray operator*(const IntArray& rhs);
-   IntArray operator/(const IntArray& rhs);
+   IntArray operator*(int x);
+   IntArray operator/(int x);
    IntArray operator<<(int count)const;
    operator char*()const;
    operator int()const;
