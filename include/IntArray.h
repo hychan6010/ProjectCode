@@ -16,8 +16,8 @@ public:
      int get(int index)const;
      int getLength()const;
      void set(int index, int value);
-     int& operator[](int index);
-     IntArray& operator+=(const IntArray& rhs);
+     int operator[](int index);
+     IntArray operator+=(const IntArray& rhs);
    IntArray operator+(const IntArray& rhs);
    IntArray operator-(const IntArray& rhs);
    IntArray operator*(const IntArray& rhs);
