@@ -101,7 +101,7 @@ IntArray IntArray::operator+(const IntArray &rhs){
       else{
          tempsize=size;
       }
-      IntArray temparray(size)
+      IntArray temparray(size);
          for(int a=0;tempsize;a++){
             temparray.set(a,array[a]-rhs.get(a));
          }
