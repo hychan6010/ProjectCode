@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stddef.h>
+#include <stdio.h>
 
 class Object {
 public:
@@ -26,7 +26,6 @@ public:
   String(const char *a):x(a) {}
   void print() { printf("%s",x); }
 };
-
 class PList {
 private:
   class ListNode {
@@ -37,7 +36,7 @@ private:
     ListNode(Object *o, ListNode *n=NULL)
     {
       obj = o;
-      next=n; 
+      next=n;
     }
     ListNode* getNext()
     {
@@ -54,13 +53,11 @@ private:
   };
   ListNode *head;
   ListNode *tail;
-
 public:
 
   class iterator {
   private:
     ListNode *node;
-
   public:
     iterator(ListNode *n=NULL) { node = n; }
     Object* getObject() { return node->getObject(); }
@@ -69,8 +66,6 @@ public:
 
     friend class PList;
   };
-
-
 public:
   PList();
   void append(Object *o);
@@ -81,7 +76,6 @@ public:
   {
     return iterator(head);
   }
-
   void removeAfter(iterator it);
   void insertAfter(iterator it, Object *o);
 };
