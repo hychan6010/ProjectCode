@@ -18,11 +18,11 @@ public:
      void set(int index, int value);
      int& operator[](int index);
      IntArray& operator+=(const IntArray& rhs);
-   IntArray& operator+(const IntArray& rhs);
-   IntArray& operator-(const IntArray& rhs);
-   IntArray& operator*(const IntArray& rhs);
-   IntArray& operator/(const IntArray& rhs);
-   IntArray& operator<<(int count)const;
+   IntArray operator+(const IntArray& rhs);
+   IntArray operator-(const IntArray& rhs);
+   IntArray operator*(const IntArray& rhs);
+   IntArray operator/(const IntArray& rhs);
+   IntArray operator<<(int count)const;
    operator char*()const;
    operator int()const;
    
@@ -56,11 +56,11 @@ int IntArray::getLength() const{
 void IntArray::set(int index, int value){
    array[index] = value;
 }
-int& IntArray::operator[](int index){
+int IntArray::operator[](int index){
    return array[index];
 }
    
-IntArray& IntArray::operator+=(const IntArray &rhs) {
+IntArray IntArray::operator+=(const IntArray &rhs) {
    int tempsize; 
    if(rhs.getLength()<size){
       tempsize = rhs.getLength();
