@@ -142,14 +142,66 @@ IntInf operator/(const IntInf &rhs) {
         }
 }
 
-IntInf operator==(const IntInf &rhs) {
-
+    operator==(const IntInf &rhs) {
+        bool result; 
+        (number == rhs.number);    
+        
+        if(pos_inf || rhs.pos_inf){     //if either infinity it is false
+            result = false;
+        }
+        else if(neg_inf || rhs.neg_inf){    // if either is negative infinity it is false
+            result = false;
+        }
+        else if (number == rhs.number){     // if two numbers are equal it is true
+            result = true;
+        }
 }
 
-IntInf operator>(const IntInf &rhs) {
-
+    operator>(const IntInf &rhs) {
+        bool result;
+        (number > rhs.number);
+        
+        if(pos_inf && rhs.number){  //infinity > number
+            result = true;
+        }
+        else if(number && rhs.pos_inf){  //number > infinity
+           result = false;
+        }
+        else if(pos_inf && rhs.pos_inf){    // infinity > infinity
+            result = false;
+        }
+        else if(neg_inf && rhs.number){  // -infinity > number
+            result = false;
+        }
+        else if(number && rhs.neg_inf){  // number > -infinity
+            result = true;
+        }
+        else if(neg_inf && rhs.neg_inf){  // -infinity > -infinity
+            result = false;
+        }
 }
 
-IntInf operator<(const IntInf &rhs) {
+    operator<(const IntInf &rhs) {
+                bool result;
+        (number < rhs.number);
+        
+        if(pos_inf && rhs.number){  //infinity < number
+            result = false;
+        }
+        else if(number && rhs.pos_inf){  //number < infinity
+           result = true;
+        }
+        else if(pos_inf && rhs.pos_inf){    // infinity  < infinity
+            result = false;
+        }
+        else if(neg_inf && rhs.number){  // -infinity < number
+            result = true;
+        }
+        else if(number && rhs.neg_inf){  // number < -infinity
+            result = false;
+        }
+        else if(neg_inf && rhs.neg_inf){  // -infinity < -infinity
+            result = false;
+        }
 
 }
