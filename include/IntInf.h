@@ -5,11 +5,12 @@ class IntInf {
       int number;
 
    public: 
-      bool pos_inf();
-      bool neg_inf();
-    };
+      bool pos_inf;
+      bool neg_inf;
     
-IntInf(int x)::int number{
+    
+IntInf(int x = 0){
+    number = x;
     if(x == -1){
        pos_inf=true;
     }
@@ -20,14 +21,25 @@ IntInf(int x)::int number{
         number = x; 
     }
 }
-IntInf operator=(const IntInf &rhs) {
-        this = &rhs; 
-        return *this
+IntInf& operator=(const IntInf &rhs) {
+        if(&rhs == this) return *this;
+        if(rhs.pos_inf){
+           pos_inf = true;
+            return *this;
+        }
+        else if(rhs.neg_inf){
+            neg_inf = true;
+            return *this;
+        }
+        else {
+            number = rhs.number;
+            return *this;
+    }
 }
       
 IntInf operator+(const IntInf &rhs) {
         IntInf result;
-        result = number + rhs.number
+        result = number + rhs.number;
         if(pos_inf || rhs.pos_inf){    //if one equals positive infinity return infinity
             return result.pos_inf = true;
         }
@@ -85,7 +97,7 @@ IntInf operator*(const IntInf &rhs) {
         else if(pos_inf || rhs.pos_inf){  // infinity * number or number * infinity
            return result.pos_inf;
         }
-        else if(neg_inf || neg.pos_inf){  // -infinity * number or number * -infinity
+        else if(neg_inf || rhs.neg_inf){  // -infinity * number or number * -infinity
            return result.neg_inf;
         }
         else if (pos_inf && rhs.pos_inf){  // infinity * infinity
@@ -142,7 +154,7 @@ IntInf operator/(const IntInf &rhs) {
         }
 }
 
-    operator==(const IntInf &rhs) {
+    bool operator==(const IntInf &rhs) {
         bool result; 
         (number == rhs.number);    
         
@@ -160,7 +172,7 @@ IntInf operator/(const IntInf &rhs) {
         }
 }
 
-    operator>(const IntInf &rhs) {
+    bool operator>(const IntInf &rhs) {
         bool result;
         (number > rhs.number);
         
@@ -184,7 +196,7 @@ IntInf operator/(const IntInf &rhs) {
         }
 }
 
-    operator<(const IntInf &rhs) {
+    bool operator<(const IntInf &rhs) {
                 bool result;
         (number < rhs.number);
         
@@ -208,3 +220,5 @@ IntInf operator/(const IntInf &rhs) {
         }
 
 }
+};
+
