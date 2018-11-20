@@ -155,6 +155,9 @@ IntInf operator/(const IntInf &rhs) {
         else if (number == rhs.number){     // if two numbers are equal it is true
             result = true;
         }
+        else {
+                result = false;
+        }
 }
 
     operator>(const IntInf &rhs) {
