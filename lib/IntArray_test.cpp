@@ -1,3 +1,4 @@
+namespace ece309{
 #include "IntArray.h"
 #include <stdio.h>
 #include <string.h>
@@ -145,4 +146,5 @@ int main() {
     return 1;
   else
     return 0;
+}
 }
