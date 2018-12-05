@@ -1,3 +1,4 @@
+namespace ece309{
 #include <stdio.h>
 
 
@@ -61,3 +62,4 @@ ArrayList::ArrayList(int c){      //default constructor
   {
    return *(array + n - 1);
   }
+}
