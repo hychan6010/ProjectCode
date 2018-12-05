@@ -1,3 +1,4 @@
+namespace ece309{
 #include <stddef.h>
 #include <stdio.h>
 
@@ -79,3 +80,4 @@ public:
   void removeAfter(iterator it);
   void insertAfter(iterator it, Object *o);
 };
+}
