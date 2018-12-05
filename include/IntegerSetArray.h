@@ -1,3 +1,4 @@
+namespace ece309{
 #include <stdio.h>
 #include <stdlib.h>
  
@@ -66,4 +67,5 @@ void IntegerSetArray::remove(int x)
         array[x]= -1;
        }
     }
+}
 }
