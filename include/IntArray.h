@@ -1,3 +1,4 @@
+namespace ece309{
 #ifndef INTARRAY_H
 #define INTARRAY_H
 
@@ -169,3 +170,5 @@ IntArray::operator int() const{
 }
 
 #endif //INTARRAY_H
+
+}
