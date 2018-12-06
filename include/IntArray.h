@@ -1,4 +1,4 @@
- ece309{
+namespace ece309{
 #ifndef INTARRAY_H
 #define INTARRAY_H
 
