@@ -1,4 +1,6 @@
-  #include <stdio.h>
+  namespace ece309{
+
+#include <stdio.h>
 
 class String {
   public:
@@ -105,3 +107,4 @@ bool List::empty()
   return head==NULL;
 }
   
+  }
