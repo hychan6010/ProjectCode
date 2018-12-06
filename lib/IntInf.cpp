@@ -1,3 +1,4 @@
+namespace ece309{
 #include <stdio.h>
 
 class IntInf {
@@ -221,6 +222,6 @@ IntInf operator/(const IntInf &rhs) {
 
 }
 };
-
+}
 
   
