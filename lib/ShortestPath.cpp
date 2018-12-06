@@ -1,3 +1,4 @@
+namespace ece309{
 #include <stdio.h>
 
 class minHeap {
@@ -64,3 +65,4 @@ class minHeap {
   };
   
   
+}
