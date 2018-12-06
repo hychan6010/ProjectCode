@@ -1,3 +1,4 @@
+namespace ece309{
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctime>
@@ -110,6 +111,7 @@ int main()
     printf("collision count %d \n", set.collision);
     printf("failure count %d \n", failure);
     
-	
+
+}
 
 }
