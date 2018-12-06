@@ -1,3 +1,5 @@
+namespace ece309{
+
 #include "PList.h"
 
 PList::PList()
@@ -82,3 +84,4 @@ void PList::insertAfter(PList::iterator it, Object *o)
     }
 }
 
+}
