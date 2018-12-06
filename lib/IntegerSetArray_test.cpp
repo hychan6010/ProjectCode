@@ -1,3 +1,4 @@
+namespace ece309{
 #include "IntegerSetArray.h"
 #include <stdio.h>
 
@@ -63,4 +64,5 @@ int main()
         return 1;
     else
         return 0;
+}
 }
